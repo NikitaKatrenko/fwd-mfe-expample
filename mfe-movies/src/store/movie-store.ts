@@ -1,7 +1,5 @@
-import create from 'zustand';
+import { create } from 'zustand';
 import axios from "axios";
-
-console.log(import.meta.env)
 
 const BASE_URL = import.meta.env.VITE_BASE_URL;
 const api_key = import.meta.env.VITE_API_KEY
@@ -15,16 +13,23 @@ const initialState = {
     errorData: null,
 };
 
-export const useWatchlistStore = create((set) => ({
-    watchlist: [],
-    addToWatchlist: (product) => set((state) => ({ watchlist: [...state.watchlist, product] })),
-    removeFromWatchlist: (movieId) => set((state) => ({
-        watchlist: state.watchlist.filter((movie) => movie.id !== movieId),
+export const useWatchlistStore = create((set, get) => ({
+  watchlist: [],
+  addToWatchlist: (movie) => {
+    const { watchlist } = get();
+    if (!watchlist.some((m) => m.id === movie.id)) {
+      set({ watchlist: [...watchlist, movie] });
+    }
+  },
+  removeFromWatchlist: (movieId) =>
+    set((state) => ({
+      watchlist: state.watchlist.filter((movie) => movie.id !== movieId),
     })),
-    clearWatchlist: () => set ({ watchlist: [] }),
+  clearWatchlist: () => set({ watchlist: [] }),
+  isInWatchlist: (movieId) => get().watchlist.some((movie) => movie.id === movieId),
 }));
 
-export const useGetData = create((set, get) => ({
+export const useGetData = create((set) => ({
     ...initialState,
 
     execute: async () => {
