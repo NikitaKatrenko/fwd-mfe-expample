@@ -20,7 +20,7 @@ function Login() {
                     <h3>Hello user!</h3>
                     <button
                         onClick={async () => {
-                            const { error } = await supabase.auth.signOut();
+                            signOut();
                             router.invalidate();
                         }}
                     >
