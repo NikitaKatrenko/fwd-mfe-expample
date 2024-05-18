@@ -22,7 +22,7 @@ export const useWatchlistStore = create((set, get) => ({
                 // Make a POST request to the API endpoint to add the movie to the watchlist
                 const response = await api.post(
                     'account/21271511/watchlist',
-                    {"media_type": "movie", "media_id": 550, "watchlist": true},
+                    {"media_type": "movie", "media_id": movie.id, "watchlist": true},
                     {
                         headers: {
                             Authorization: `Bearer ${import.meta.env.VITE_ACCESS_TOKEN}`,
@@ -47,7 +47,7 @@ export const useWatchlistStore = create((set, get) => ({
             // Make a DELETE request to the API endpoint to remove the movie from the watchlist
             const response = await api.post(
                 'account/21271511/watchlist',
-                {"media_type": "movie", "media_id": 550, "watchlist": false},
+                {"media_type": "movie", "media_id": movieId, "watchlist": false},
                 {
                     headers: {
                         Authorization: `Bearer ${import.meta.env.VITE_ACCESS_TOKEN}`,
