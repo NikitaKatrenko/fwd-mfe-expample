@@ -1,8 +1,13 @@
 // watchlist.jsx
 import { createFileRoute, redirect } from '@tanstack/react-router'
 
+
+//AUTHENTICATED ROUTE WITH GUARD
 export const Route = createFileRoute('/watchlist')({
+    //додати після context.authentication в main.tsx
+    //beforeLoad: ({ context }) => {
     beforeLoad: ({ context }) => {
+        //add context.authentication in main.tsx
         const { isLogged } = context.authentication;
         if (!isLogged()) {
             throw redirect({

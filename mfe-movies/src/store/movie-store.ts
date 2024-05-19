@@ -5,6 +5,8 @@ const BASE_URL = import.meta.env.VITE_BASE_URL;
 const api_key = import.meta.env.VITE_API_KEY
 const api = axios.create({baseURL: BASE_URL});
 
+prcess.env.VITE_ACCESS
+
 const initialState = {
     loading: false,
     success: false,
