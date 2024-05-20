@@ -10,8 +10,6 @@ import { routeTree } from './routeTree.gen'
 
 const router = createRouter({
     routeTree,
-
-    //Додати під час авторизації
     context: { authentication: undefined! },
 });
 
@@ -28,7 +26,6 @@ if (!rootElement.innerHTML) {
     const root = ReactDOM.createRoot(rootElement)
     const authentication = useAuth()
 
-    //context={{ authentication }} під час логіну - створити хук hooks/useAuth.ts
     root.render(
         <StrictMode>
             <RouterProvider router={router} context={{ authentication }} />

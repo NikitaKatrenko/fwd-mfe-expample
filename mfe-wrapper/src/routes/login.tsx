@@ -1,5 +1,4 @@
-import { createFileRoute, useRouter, useNavigate } from "@tanstack/react-router";
-import { isAuthenticated, signIn, signOut } from "../utils/auth";
+import {createFileRoute, useRouter, useNavigate} from "@tanstack/react-router";
 import {createClient} from "@supabase/supabase-js";
 
 const supabase = createClient(import.meta.env.VITE_SUPABASE_URL, import.meta.env.VITE_SUPABASE_KEY);
@@ -15,31 +14,17 @@ function Login() {
     return (
         <div className="login-container">
             <h2>Login</h2>
-            {isAuthenticated() ? (
-                <>
-                    <h3>Hello user!</h3>
-                    <button
-                        onClick={async () => {
-                            signOut();
-                            router.invalidate();
-                        }}
-                    >
-                        Sign out
-                    </button>
-                </>
-            ) : (
+            <>
+                <h3>Hello user!</h3>
                 <button
                     onClick={async () => {
-                        signIn();
+                        const {error} = await supabase.auth.signOut();
                         router.invalidate();
-                        navigate({
-                            to: '/',
-                        });
                     }}
                 >
-                    Sign in
+                    Sign out
                 </button>
-            )}
+            </>
         </div>
     );
 }

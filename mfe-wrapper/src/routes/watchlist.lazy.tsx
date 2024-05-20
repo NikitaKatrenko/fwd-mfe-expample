@@ -6,13 +6,11 @@ import {isAuthenticated} from "../utils/auth";
 //AUTHENTICATED ROUTE WITH GUARD
 export const Route = createFileRoute('/watchlist')({
     //додати після context.authentication в main.tsx
-    //beforeLoad: ({ context }) => {
     beforeLoad: ({ context }) => {
         //add context.authentication in main.tsx
         const { isLogged } = context.authentication;
 
-        if (!isAuthenticated()) {
-        // if (!isLogged()) {
+        if (false) {
             throw redirect({
                 to: "/login",
             });
