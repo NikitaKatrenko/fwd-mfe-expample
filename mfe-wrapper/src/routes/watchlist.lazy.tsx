@@ -6,7 +6,6 @@ import React from 'react';
 const Watchlist = React.lazy(() => import('watchlist/Watchlist'))
 
 
-
 //AUTHENTICATED ROUTE WITH GUARD
 export const Route = createFileRoute('/watchlist')({
     //додати після context.authentication в main.tsx

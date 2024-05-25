@@ -12,9 +12,10 @@ export default defineConfig({
     federation({
       name: "wrapper-app",
       remotes: {
-        watchlist: "http://localhost:5001/assets/remoteEntry.js",
+        watchlist: "http://localhost:5001/assets/watchlistRemoteEntry.js",
+        movies: "http://localhost:5002/assets/moviesRemoteEntry.js",
       },
-      shared: ["react", "react-dom"],
+      shared: ["react", "react-dom", "zustand", "axios"],
     }),
   ],
   build: {

@@ -1,9 +1,9 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 const Watchlist = () => {
   const [watchlist, setWatchlist] = React.useState([]);
 
-  React.useEffect(() => {
+  useEffect(() => {
     // Replace 'YOUR_API_KEY' with your actual TMDb API key
     const apiKey = import.meta.env.VITE_API_KEY;
 

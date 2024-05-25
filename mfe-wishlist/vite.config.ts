@@ -9,7 +9,7 @@ export default defineConfig({
     react(),
     federation({
       name: "watchlist",
-      filename: "remoteEntry.js",
+      filename: "watchlistRemoteEntry.js",
       exposes: {
         "./Watchlist": "./src/App.tsx",
       },
