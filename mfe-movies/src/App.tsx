@@ -1,6 +1,6 @@
 import "./App.css";
-import Watchlist from "./compoenents/Watchlist";
-import Movies from "./compoenents/Movies";
+import Watchlist from "./components/Watchlist";
+import Movies from "./components/Movies";
 
 function App() {
     return (
