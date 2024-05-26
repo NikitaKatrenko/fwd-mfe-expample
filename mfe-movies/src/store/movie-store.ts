@@ -1,8 +1,6 @@
 import create from 'zustand';
 import axios from "axios";
 
-console.log(import.meta.env)
-
 const BASE_URL = import.meta.env.VITE_BASE_URL;
 const api_key = import.meta.env.VITE_API_KEY
 const api = axios.create({ baseURL: BASE_URL });
