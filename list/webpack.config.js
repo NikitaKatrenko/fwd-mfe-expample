@@ -7,6 +7,14 @@ module.exports = {
     port: 6061,
   },
   plugins: [
+    new ModuleFederationPlugin({
+      name: "list",
+      filename: "remoteEntry.js",
+      exposes: {
+        "./ListIndex": "./src/bootstrap.js",
+      },
+      shared: ['@faker-js/faker']
+    }),
     new HTMLWebpackPlugin({
       template: "./public/index.html",
     }),
